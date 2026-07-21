@@ -1,0 +1,27 @@
+info:
+  name: Crear Producto (POST con Token)
+  type: http
+  seq: 12
+
+http:
+  method: POST
+  url: http://157.230.0.199:8088/api/productos
+  body:
+    type: json
+    data: |-
+      {
+        "nombre": "Labial Matte",
+        "precio": 199.50,
+        "categoria": {
+          "id": 3
+        }
+      }
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ5YXJlbGl2cHNAZ21haWwuY29tIiwiaWF0IjoxNzg0NjAxMTAxLCJleHAiOjE3ODQ2ODc1MDF9.qr0UH6wHjbAQpF03PvNjubryUfsPde6FwrBSuPWkNdw
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

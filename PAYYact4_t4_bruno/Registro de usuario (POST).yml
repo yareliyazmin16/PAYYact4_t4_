@@ -1,0 +1,23 @@
+info:
+  name: Registro de usuario (POST)
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: http://157.230.0.199:8088/api/auth/register
+  body:
+    type: json
+    data: |-
+      {
+        "nombre": "Yareli VPS",
+        "email": "yarelivps@gmail.com",
+        "password": "password123"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

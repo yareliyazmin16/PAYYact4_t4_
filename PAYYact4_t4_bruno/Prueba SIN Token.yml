@@ -1,0 +1,14 @@
+info:
+  name: Prueba SIN Token
+  type: http
+  seq: 4
+
+http:
+  method: GET
+  url: http://157.230.0.199:8088/api/productos
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

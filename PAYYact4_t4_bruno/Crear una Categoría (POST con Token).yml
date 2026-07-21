@@ -1,0 +1,23 @@
+info:
+  name: Crear una Categoría (POST con Token)
+  type: http
+  seq: 9
+
+http:
+  method: POST
+  url: http://157.230.0.199:8088/api/categorias
+  body:
+    type: json
+    data: |-
+      {
+        "nombre": "Cosméticos"
+      }
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ5YXJlbGl2cHNAZ21haWwuY29tIiwiaWF0IjoxNzg0NjAxMTAxLCJleHAiOjE3ODQ2ODc1MDF9.qr0UH6wHjbAQpF03PvNjubryUfsPde6FwrBSuPWkNdw
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

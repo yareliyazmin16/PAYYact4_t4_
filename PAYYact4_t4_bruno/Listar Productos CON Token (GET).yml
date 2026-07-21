@@ -1,0 +1,17 @@
+info:
+  name: Listar Productos CON Token (GET)
+  type: http
+  seq: 5
+
+http:
+  method: GET
+  url: http://157.230.0.199:8088/api/productos
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ5YXJlbGl2cHNAZ21haWwuY29tIiwiaWF0IjoxNzg0NjAwMTYxLCJleHAiOjE3ODQ2ODY1NjF9.95l9gdha0ckssutBwpsM14Nx9VApbwAO-EwhgmrhJIM
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
