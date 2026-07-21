@@ -43,7 +43,7 @@ Se realiza el registro de un nuevo usuario en la base de datos para obtener cred
 
 Registro de usuario:
 
-POST http://157.230.0.199:8088/api/auth/register
+link: http://157.230.0.199:8088/api/auth/register
 Body: {
   "nombre": "Yareli VPS",
   "email": "yarelivps@gmail.com",
@@ -52,7 +52,7 @@ Body: {
 
 Inicio de sesión (Login / Obtener Token):
 
-POST http://157.230.0.199:8088/api/auth/login 
+Link: http://157.230.0.199:8088/api/auth/login 
 
 
 ####  Prueba a Endpoint Protegido SIN Token (GET /api/productos)
