@@ -12,7 +12,7 @@ Programación Web
 Unidad 3
 
 **Título del trabajo:**  
-Act.3 CRUD en Spring Boot y Relaciones (sin frontend separado)
+Actividad 4: API REST con Spring Security, JWT y Despliegue en VPS
 
 **Alumnos:**  
 Pacheco Aragon Yareli Yazmin
@@ -25,68 +25,51 @@ B
 
 
 **Fecha de entrega:**  
-18 de julio del 2026
+21 de julio del 2026
 
 
+##  Descripción del Proyecto
+
+Este proyecto es una API REST que desarrollé con Java y Spring Boot. Sirve para gestionar un catálogo de productos y categorías  y cuenta con un sistema de seguridad que implementé usando Spring Security y JSON Web Tokens (JWT) para proteger los endpoints.
 
 
+##  Evidencias de Funcionamiento
 
 
-##  Modelo de Datos y Relación JPA
-
-El núcleo del CRUD modela un inventario basado en dos entidades mediante una relación:
-
-1.  **Entidad Fuerte (Categoría):** Define las clasificaciones del inventario.
-2.  **Entidad Débil (Producto):** Contiene los artículos individuales.
-
-### Relación `@ManyToOne` (Muchos a Uno)
-Se implementó una relación relacional donde **Muchos Productos pertenecen a una Única Categoría**. Esto garantiza la integridad referencial mediante una llave foránea (`FOREIGN KEY`) automática en MySQL.
-
-
-## Demostración del CRUD mediante Vista Web (Thymeleaf + Bootstrap)
-![alt text](img/imag.png)
-Esta interfaz está diseñada para la interacción directa del usuario desde el navegador web.
-
-### Crear Producto (Formulario de Registro)
-![alt text](img/image1.png)
-
-Permite ingresar el nombre, precio y seleccionar mediante un menú desplegable la categoría.
-
-*Aquí se observa la relación reflejada correctamente en producción, mostrando el nombre de la categoría asignada (**REFRESCO**) en lugar de solo su identificador numérico.*
-
-
-###  Actualizar Producto (Formulario de Edición)
+####  Registro de Usuario (`POST /api/auth/register`)
 ![alt text](img/image.png)
+
+Se realiza el registro de un nuevo usuario en la base de datos para obtener credenciales de acceso.
+
+####  Prueba a Endpoint Protegido SIN Token (`GET /api/productos`)
+
 ![alt text](img/image-1.png)
-Extrae los datos actuales del registro mediante su ID, precarga el formulario y actualiza los campos modificados.
+
+Demostración de la seguridad de la API: al intentar consultar un recurso protegido sin enviar el token de autorización, Spring Security bloquea el acceso con un estado **403 Forbidden**.
 
 
-### Eliminar Producto (Baja Lógica/Física)
+####  Crear Categoria y Producto 
 ![alt text](img/image-2.png)
 ![alt text](img/image-3.png)
-Acción que remueve el registro seleccionado de las tablas de la base de datos, refrescando la vista de inventario inmediatamente.
+Creación de una nueva categoria y un producto enviando el token en el encabezado `Authorization: Bearer <token>` y validando los campos con DTOs.
+
+####  Listar Productos - GET (`GET /api/productos`)
+![alt text](img/image-4.png)
+Consulta general de los productos registrados en la base de datos del VPS.
 
 
-
-##  Demostración del CRUD mediante API REST (Postman - Respuestas JSON)
-
-
-###  Crear Producto (POST `/api/productos`)
+####  Actualizar Producto - PUT (`PUT /api/productos/{id}`)
 ![alt text](img/image-5.png)
-Petición de inserción enviando un objeto JSON en el cuerpo (`Body`) de la solicitud. Retorna el nuevo registro. 
+
+Modificación de los datos de un producto existente mediante su ID.
 
 
-### Leer Productos (GET `/api/productos`)
+#### Eliminar Producto - DELETE (`DELETE /api/productos/{id}`)
 ![alt text](img/image-6.png)
-Consulta general que devuelve un arreglo JSON con código de estado `200 OK`. Se aprecia la relación con `"categoria"`, validando la relación `@ManyToOne`.
+Eliminación de un registro específico de la base de datos.
 
 
-###  Actualizar Producto (PUT `/api/productos/{id}`)
-![alt text](img/image-7.png)
-Modificación total o parcial de los atributos del producto especificado en el Path Variable.
 
-
-### Eliminar Producto (DELETE `/api/productos/{id}`)
-![alt text](img/image-8.png)
-Envío de la orden de eliminar el registro por ID, devolviendo una confirmación HTTP exitosa.
-
+* **Link Base de la API (VPS):** http://157.230.0.199:8088/api
+* **Colección de Bruno:** Incluida en la carpeta `PAYYact4_t4_bruno` del repositorio.
+* **Link de repositorio:** https://github.com/yareliyazmin16/PAYYact4_t4_ 
