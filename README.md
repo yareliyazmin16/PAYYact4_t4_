@@ -41,31 +41,71 @@ Este proyecto es una API REST que desarrollé con Java y Spring Boot. Sirve para
 
 Se realiza el registro de un nuevo usuario en la base de datos para obtener credenciales de acceso.
 
+Registro de usuario:
+
+POST http://157.230.0.199:8088/api/auth/register
+Body: {
+  "nombre": "Yareli VPS",
+  "email": "yarelivps@gmail.com",
+  "password": "password123"
+}
+
+Inicio de sesión (Login / Obtener Token):
+
+POST http://157.230.0.199:8088/api/auth/login 
+
+
 ####  Prueba a Endpoint Protegido SIN Token (GET /api/productos)
 
 ![alt text](img/image-1.png)
+Link: http://157.230.0.199:8088/api/productos
+
 
 Demostración de la seguridad de la API: al intentar consultar un recurso protegido sin enviar el token de autorización, Spring Security bloquea el acceso con un estado **403 Forbidden**.
 
 
 ####  Crear Categoria y Producto 
 ![alt text](img/image-2.png)
+Link: http://157.230.0.199:8088/api/categorias
+Body: {
+  "nombre": "Cosméticos"
+}
+
+
 ![alt text](img/image-3.png)
+Link: http://157.230.0.199:8088/api/productos
+Body: {
+  "nombre": "Labial Matte",
+  "precio": 199.50,
+  "categoria": {
+    "id": 3
+  }
+}
 Creación de una nueva categoria y un producto enviando el token en el encabezado `Authorization: Bearer <token>` y validando los campos con DTOs.
 
 ####  Listar Productos - GET (GET /api/productos)
 ![alt text](img/image-4.png)
+Link: http://157.230.0.199:8088/api/productos 
 Consulta general de los productos registrados en la base de datos del VPS.
-
+ 
 
 ####  Actualizar Producto - PUT (PUT /api/productos/{id})
 ![alt text](img/image-5.png)
+Link: http://157.230.0.199:8088/api/productos/6
+Body: {
+  "nombre": "Labial Matte Modificado",
+  "precio": 220.00,
+  "categoria": {
+    "id": 3
+  }
+}
 
 Modificación de los datos de un producto existente mediante su ID.
 
 
 #### Eliminar Producto - DELETE (DELETE /api/productos/{id})
 ![alt text](img/image-6.png)
+Link: http://157.230.0.199:8088/api/productos/6 
 Eliminación de un registro específico de la base de datos.
 
 
